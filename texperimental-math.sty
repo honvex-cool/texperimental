@@ -1,0 +1,194 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texperimental-math}
+
+\RequirePackage[inline]{enumitem}
+\RequirePackage{hyperref}
+\RequirePackage{xcolor}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{multirow}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{siunitx}
+
+\RequirePackage[makeroom]{cancel}
+\RequirePackage{textcomp}
+\RequirePackage{gensymb}
+\RequirePackage{marvosym}
+\RequirePackage{xparse}
+
+\RequirePackage{xcolor}
+
+\RequirePackage{ifthen}
+\RequirePackage{etextools}
+
+\makeatletter
+    \newcommand{\DeclarePairedDelimiterCase}[2]{%
+        \newcommand#1[1][]{%
+            \ifthenelse{\equal{##1}{normal}}%
+            {#2}%
+            {%
+                \ifthenelse{\equal{##1}{big}\OR\equal{##1}{Big}\OR\equal{##1}{bigg}\OR\equal{##1}{Bigg}}%
+                {\expandnext{#2[}{\csname##1\endcsname}]}%
+                {#2*}%        % standard case using \left and \right
+            }%
+        }%
+    }
+    \newcommand{\DeclarePairedDelimiterY}[4][Temp]{%
+        \expandafter\DeclarePairedDelimiter\csname#2#1\endcsname{#3}{#4}%
+        \expandnext{\expandnext{\DeclarePairedDelimiterCase}{\csname#2\endcsname}}{\csname#2#1\endcsname}%
+    }
+    \newcommand{\DeclarePairedDelimiterXY}[6][Temp]{%
+        \expandafter\DeclarePairedDelimiterX\csname#2#1\endcsname[#3]{#4}{#5}{#6}%
+        \expandnext{\expandnext{\DeclarePairedDelimiterCase}{\csname#2\endcsname}}{\csname#2#1\endcsname}%
+    }
+\makeatother
+
+
+
+% math
+\let\constfont\mathrm
+
+% delimiters
+\DeclarePairedDelimiterY{parentheses}{(}{)}
+\DeclarePairedDelimiterY{brackets}{[}{]}
+\DeclarePairedDelimiterY{braces}{\{}{\}}
+\DeclarePairedDelimiterY{abs}{\|}{\|}
+
+% symbols for sets
+\let\naturalmusic\natural
+\newcommand{\real}{\mathbb{R}}
+\renewcommand{\natural}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\irrational}{\real \setminus \rational}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\quaternions}{\mathbb{H}}
+\newcommand{\primes}{\mathbb{P}}
+\let\set\braces
+
+% complex numbers
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Arg}{Arg}
+\let\conj\overline
+
+% intervals
+\newcommand{\intervalbounds}[2]{{#1};\,{#2}}
+\newcommand{\closed}[2]{\left[\intervalbounds{#1}{1}\right]}
+\newcommand{\leftclosed}[2]{\left[\intervalbounds{#1}{#2}\right)}
+\newcommand{\rightclosed}[2]{\left(\intervalbounds{#1}{#2}\right]}
+\newcommand{\open}[2]{\left(\intervalbounds{#1}{#2}\right)}
+
+% sequences
+\let\sequence\parentheses
+\renewcommand{\binom}{\dbinom}
+\NewDocumentCommand{\limit}{O{n} O{+\infty}}{\lim\limits_{{#1}\to{#2}}}
+\NewDocumentCommand{\summation}{O{n = 1} O{+\infty}}{\sum\limits_{#1}^{#2}}
+\NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod\limits_{#1}^{#2}}
+% Maybe sometimes better than the second \converges command, but generally not
+%\NewDocumentCommand{\converges}{O{Orange} m O{above} m O{0.5}}{%
+%    \ifthenelse{\equal{#3}{below}}%
+%    {\mathrel{\mathop{#4}\limits_{\vbox to #5\ex@{\kern-\tw@\ex@\hbox{$\scriptstyle\textcolor{#1}{\to #2}$}\vss}}}}%
+%    {\mathrel{\mathop{#4}\limits^{\vbox to -#5\ex@{\kern-\tw@\ex@\hbox{$\scriptstyle\textcolor{#1}{\to #2}$}\vss}}}}%
+%}
+\NewDocumentCommand{\converges}{O{Orange} m O{above} m}{%
+    \ifthenelse{\equal{#3}{below}}%
+    {{\underset{\textcolor{#1}{\to #2}}{#4}}}%
+    {{\overset{\textcolor{#1}{\to #2}}{#4}}}%
+}
+\DeclareMathOperator{\Fib}{Fib}
+\DeclareMathOperator{\Catalan}{C}
+\DeclareMathOperator{\Lucas}{L}
+
+% calculus
+\newcommand{\diff}{\constfont{d}}
+\newcommand{\derivative}[2]{\frac{\diff #1}{\diff #2}}
+\newcommand{\partialderivative}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\der}[1]{\frac{\diff}{\diff #1}}
+\newcommand{\partialder}[1]{\frac{\partial}{\partial #1}}
+
+% linear algebra
+\renewcommand{\vec}{\overrightarrow}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+
+% geometry
+\let\len\abs
+\newcommand{\mangle}[1]{\len{\angle #1}}
+\let\arc\widehat
+
+% symbols
+\let\Rho\varrho
+
+% proofs
+\newenvironment{induction}{\begin{enumerate}[label={\arabic\degree}]}{\end{enumerate}}
+\newenvironment{proofcases}{\begin{enumerate}[label={\arabic\degree}]}{\end{enumerate}}
+
+
+% physics and measurements
+\let\unit\brackets
+
+\newcommand{\yocto}{\constfont{yocto}}
+\newcommand{\zepto}{\constfont{zepto}}
+\newcommand{\atto}{\constfont{atto}}
+\newcommand{\femto}{\constfont{f}}
+\newcommand{\pico}{\constfont{p}}
+\newcommand{\nano}{\constfont{n}}
+\let\micro\mu
+\newcommand{\mili}{\constfont{m}}
+\newcommand{\centi}{\constfont{c}}
+\newcommand{\deci}{\constfont{d}}
+\newcommand{\deca}{\constfont{da}}
+\newcommand{\hecto}{\constfont{h}}
+\newcommand{\kilo}{\constfont{k}}
+\newcommand{\mega}{\constfont{M}}
+\newcommand{\giga}{\constfont{G}}
+\newcommand{\tera}{\constfont{T}}
+\newcommand{\peta}{\constfont{P}}
+\newcommand{\exa}{\constfont{E}}
+\newcommand{\zetta}{\constfont{Z}}
+\newcommand{\yotta}{\constfont{Y}}
+
+\newcommand{\rad}{\constfont{rad}}
+\newcommand{\mol}{\constfont{mol}}
+
+\let\liter\ell
+\newcommand{\m}{\constfont{m}}
+\newcommand{\dm}{\deci\m}
+\newcommand{\cm}{\centi\m}
+\newcommand{\mm}{\mili\m}
+\newcommand{\km}{\kilo\m}
+
+\newcommand{\g}{\constfont{g}}
+\newcommand{\kg}{\kilo\g}
+\newcommand{\ton}{\constfont{t}}
+
+\newcommand{\s}{\constfont{s}}
+\newcommand{\ms}{\mili\s}
+\newcommand{\h}{\constfont{h}}
+
+\newcommand{\Pa}{\constfont{Pa}}
+\newcommand{\hPa}{\hecto\Pa}
+\newcommand{\MPa}{\mega\Pa}
+\newcommand{\kPa}{\kilo\Pa}
+\newcommand{\GPa}{\giga\Pa}
+\newcommand{\atm}{\constfont{atm}}
+\newcommand{\at}{\constfont{at}}
+\newcommand{\mmHg}{\constfont{mmHg}}
+\newcommand{\Tr}{\constfont{Tr}}
+
+\newcommand{\N}{\constfont{N}}
+\newcommand{\Hz}{\constfont{Hz}}
+\newcommand{\B}{\constfont{B}}
+\newcommand{\dB}{\deci\B}
+\newcommand{\K}{\consfont{K}}
+\newcommand{\J}{\constfont{J}}
+\newcommand{\W}{\constfont{W}}
+
+\newcommand{\zl}{\textrm{zł}}

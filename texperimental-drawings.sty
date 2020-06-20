@@ -1,0 +1,45 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texperimental-drawings}
+
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{xfp}
+\RequirePackage{xparse}
+
+\usetikzlibrary{angles,quotes,babel,calc}
+
+\NewDocumentCommand{\fillpoint}{O{} m O{} O{above}}%
+{%
+    \ifthenelse{\equal{#3}{}}{\filldraw[#1] (#2) circle [radius=1pt]}{\filldraw[#1] (#2) circle [radius=1pt] node[#4]{#3}}%
+}%
+\NewDocumentCommand{\drawpoint}{O{black} O{white} m O{} O{above}}%
+{%
+    \ifthenelse{\equal{#3}{}}{\filldraw[draw=#1, fill=#2] (#3) circle [radius=1pt]}{\filldraw[draw=#1, fill=#2] (#3) circle [radius=1pt] node[#5]{#4}}%
+}%
+
+\newenvironment{mathfigure}[1]%
+{%
+    \def\figurecaption{#1}%
+    \begin{figure}[H]%
+        \centering%
+        \begin{tikzpicture}%
+}%
+{%
+    \end{tikzpicture}%
+    \caption{\figurecaption}%
+    \end{figure}%
+}%
+
+\newenvironment{mathfigure*}%
+{%
+    \begin{figure}[H]%
+        \centering%
+        \begin{tikzpicture}%
+}%
+{%
+        \end{tikzpicture}%
+    \end{figure}%
+}%
