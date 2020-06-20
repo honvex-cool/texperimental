@@ -23,29 +23,6 @@
 \RequirePackage{xcolor}
 
 \RequirePackage{ifthen}
-\RequirePackage{etextools}
-
-\makeatletter
-    \newcommand{\DeclarePairedDelimiterCase}[2]{%
-        \newcommand#1[1][]{%
-            \ifthenelse{\equal{##1}{normal}}%
-            {#2}%
-            {%
-                \ifthenelse{\equal{##1}{big}\OR\equal{##1}{Big}\OR\equal{##1}{bigg}\OR\equal{##1}{Bigg}}%
-                {\expandnext{#2[}{\csname##1\endcsname}]}%
-                {#2*}%        % standard case using \left and \right
-            }%
-        }%
-    }
-    \newcommand{\DeclarePairedDelimiterY}[4][Temp]{%
-        \expandafter\DeclarePairedDelimiter\csname#2#1\endcsname{#3}{#4}%
-        \expandnext{\expandnext{\DeclarePairedDelimiterCase}{\csname#2\endcsname}}{\csname#2#1\endcsname}%
-    }
-    \newcommand{\DeclarePairedDelimiterXY}[6][Temp]{%
-        \expandafter\DeclarePairedDelimiterX\csname#2#1\endcsname[#3]{#4}{#5}{#6}%
-        \expandnext{\expandnext{\DeclarePairedDelimiterCase}{\csname#2\endcsname}}{\csname#2#1\endcsname}%
-    }
-\makeatother
 
 
 
@@ -53,10 +30,14 @@
 \let\constfont\mathrm
 
 % delimiters
-\DeclarePairedDelimiterY{parentheses}{(}{)}
-\DeclarePairedDelimiterY{brackets}{[}{]}
-\DeclarePairedDelimiterY{braces}{\{}{\}}
-\DeclarePairedDelimiterY{abs}{\|}{\|}
+\DeclarePairedDelimiter{\parenthesesdelimiter}{(}{)}
+\def\parentheses{\parenthesesdelimiter*}
+\DeclarePairedDelimiter{\bracketsdelimiter}{[}{]}
+\def\brackets{\bracketsdelimiter*}
+\DeclarePairedDelimiter{\bracesdelimiter}{\{}{\}}
+\def\braces{\bracesdelimiter*}
+\DeclarePairedDelimiter{\absdelimiter}{\|}{\|}
+\def\abs{\absdelimiter*}
 
 % symbols for sets
 \let\naturalmusic\natural
