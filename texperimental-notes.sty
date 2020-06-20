@@ -10,7 +10,5 @@
 \newenvironment{onelineitem}{\begin{itemize*}[label={}, itemjoin={,\quad}]}{\end{itemize*}}
 \newenvironment{onelineenum}{\begin{enumerate*}[label=\alph*), itemjoin={\qquad}]}{\end{enumerate*}}
 \newcommand{\link}[2]{\href{#1}{\textcolor{blue}{#2}}}
-\newcommand{\answer}{\textbf{Odpowiedź: }}
-\newcommand{\solution}{\textbf{Rozwiązanie: }}
 \let\ans\textbf
 \NewDocumentCommand{\choice}{m O{}}{\ifthenelse{\equal{#2}{}}{\textbf{#1}}{\textbf{#1~#2}}}
