@@ -2,7 +2,7 @@
 A set of LaTeX packages for taking notes and writing math texts
 
 # Installation
-To install, put the `.sty` files into `~/texmf/tex/latex` (create this directory structure, if it doesn't exist) and run `texhash ~/texmf`.
+To install, put the `.sty` files into `~/texmf/tex/latex` (create this directory structure if it doesn't exist) and run `texhash ~/texmf`.
 
 # Usage
 
