@@ -34,6 +34,7 @@
 % delimiters
 \DeclarePairedDelimiter{\parenthesesdelimiter}{(}{)}
 \def\parentheses{\parenthesesdelimiter*}
+\let\paren\parentheses
 \DeclarePairedDelimiter{\bracketsdelimiter}{[}{]}
 \def\brackets{\bracketsdelimiter*}
 \DeclarePairedDelimiter{\bracesdelimiter}{\{}{\}}
@@ -85,6 +86,7 @@
     {{\underset{\textcolor{#1}{\to #2}}{#4}}}%
     {{\overset{\textcolor{#1}{\to #2}}{#4}}}%
 }
+\let\conv\converges
 \DeclareMathOperator{\Fib}{Fib}
 
 % calculus
@@ -128,6 +130,7 @@
 \newenvironment{proofcases}{\begin{enumerate}[label={\arabic*\degree}]}{\end{enumerate}}
 \providecommand{\QEDsymbol}{\rule{1.566ex}{1.566ex}}
 \providecommand{\QED}{\hfill\QEDsymbol}
+\NewDocumentCommand{\canc}{O{black} m}{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
 
 
 % physics and measurements
