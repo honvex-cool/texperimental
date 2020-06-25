@@ -11,6 +11,8 @@
 
 \usetikzlibrary{angles,quotes,babel,calc}
 
+\definecolor{lightgray}{gray}{0.75}
+
 \NewDocumentCommand{\fillpoint}{O{} m O{} O{above}}%
 {%
     \ifthenelse{\equal{#3}{}}%
@@ -45,7 +47,7 @@
     \draw[->, -stealth, thick, #2] let \p1=(#3), \p2=(#4) in (0, \y1) -- node[above left, at end]{#6} (0, \y2);%
     \draw[->, -stealth, thick, #1] let \p1=(#3), \p2=(#4) in (\x1, 0) -- node[below right, at end]{#5} (\x2, 0)%
 }%
-\NewDocumentCommand{\drawcoordsystem}{O{black} O{gray, very thin} m O{1cm} O{1} O{0} m O{$x$} O{$y$}}%
+\NewDocumentCommand{\drawcoordsystem}{O{black} O{lightgray, very thin} m O{1cm} O{1} O{0} m O{$x$} O{$y$}}%
 {%
     \coordinate (startcoordinatesystem) at (#3);
     \coordinate (endcoordinatesystem) at (#7);

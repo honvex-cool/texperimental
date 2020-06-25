@@ -6,9 +6,12 @@
 \RequirePackage{xparse}
 \RequirePackage{ifthen}
 
+\RequirePackage{amsmath}
+
 % classic note-taking setup
 \newenvironment{onelineitem}{\begin{itemize*}[label={}, itemjoin={,\quad}]}{\end{itemize*}}
 \newenvironment{onelineenum}{\begin{enumerate*}[label=\alph*), itemjoin={\qquad}]}{\end{enumerate*}}
 \newcommand{\link}[2]{\href{#1}{\textcolor{blue}{#2}}}
 \let\ans\textbf
 \NewDocumentCommand{\choice}{m O{}}{\ifthenelse{\equal{#2}{}}{\textbf{#1}}{\textbf{#1~#2}}}
+\let\highlight\textbf

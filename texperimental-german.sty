@@ -1,0 +1,15 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texperimental-german}
+
+\providecommand{\answer}{\textbf{Antwort:}}
+\providecommand{\solution}{\textbf{Lösung:}}
+\providecommand{\der}{\textcolor{red}{\textbf{der}}\ }
+\providecommand{\die}{\textcolor{ForestGreen}{\textbf{die}}\ }
+\providecommand{\das}{\textcolor{blue}{\textbf{das}}\ }
+\providecommand{\diepl}{\textcolor{Orange}{\textbf{die}}\ }
+
+\newenvironment{words}{\textit{Słownictwo:}\begin{description}}{\end{description}}
+\newenvironment{schoolwork}{\textit{Zadania zrobione na lekcji:}\begin{itemize}}{\end{itemize}}
+\newenvironment{homework}{\textit{Zadania do domu:}\begin{itemize}}{\end{itemize}}
+\newenvironment{grammar}{\textit{Gramatyka:}\begin{itemize}}{\end{itemize}}
+\newenvironment{danger}{\textit{W najbliższym czasie czekają nas:}\begin{itemize}}{\end{itemize}}

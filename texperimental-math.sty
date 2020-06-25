@@ -102,12 +102,12 @@
     {\frac{\partial #2}{\partial #3}}%
     {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
 }
-\NewDocumentCommand{\der}{O{1} m}{%
+\NewDocumentCommand{\deriv}{O{1} m}{%
     \ifthenelse{\equal{#1}{1}}%
     {\frac{\diff}{\diff #2}}%
     {\frac{\diff^{#1}}{\diff #2}}%
 }
-\NewDocumentCommand{\partialder}{O{1} m}{%
+\NewDocumentCommand{\partialderiv}{O{1} m}{%
     \ifthenelse{\equal{#1}{1}}%
     {\frac{\partial}{\partial #2}}%
     {\frac{\partial^{#1}}{\partial #2}}%
