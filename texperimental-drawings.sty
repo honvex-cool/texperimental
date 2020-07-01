@@ -13,25 +13,31 @@
 
 \definecolor{lightgray}{gray}{0.75}
 
-\NewDocumentCommand{\fillpoint}{O{} m O{} O{above}}%
+\NewDocumentCommand{\fillpoint}{O{} m}%
 {%
-    \ifthenelse{\equal{#3}{}}%
-    {\filldraw[#1] (#2) circle [radius=1pt]}%
-    {\filldraw[#1] (#2) circle [radius=1pt] node[#4]{#3}}%
+    \filldraw[#1] (#2) circle (1pt)%
+}%
+\NewDocumentCommand{\fillpoint*}{O{} m m O{above}}%
+{%
+    \filldraw[#1] (#2) circle (1pt) node[#4]{#3}%
 }%
 
-\NewDocumentCommand{\drawpoint}{O{black} O{white} m O{} O{above}}%
+\NewDocumentCommand{\drawpoint}{O{black} O{white} m}%
 {%
-    \ifthenelse{\equal{#3}{}}%
-    {\filldraw[draw=#1, fill=#2] (#3) circle [radius=1pt]}%
-    {\filldraw[draw=#1, fill=#2] (#3) circle [radius=1pt] node[#5]{#4}}%
+    \filldraw[draw=#1, fill=#2] (#3) circle (1pt)%
+}%
+\NewDocumentCommand{\drawpoint*}{O{black} O{white} m m O{above}}%
+{%
+    \filldraw[draw=#1, fill=#2] (#3) circle (1pt) node[#5]{#4}%
 }%
 
-\NewDocumentCommand{\drawangle}{O{} m O{}}%
+\NewDocumentCommand{\drawangle}%
 {%
-    \ifthenelse{\equal{#3}{}}%
-    {\pic[draw, #1] {angle=#2}}%
-    {\pic[draw, "#3", #1] {angle=#2}}%
+    \pic[draw, #1] {angle=#2}%
+}%
+\NewDocumentCommand{\drawangle*}{O{} m m}%
+{%
+    \pic[draw, "#3", #1] {angle=#2}%
 }%
 
 \NewDocumentCommand{\drawhmark}{O{black} O{thick} O{0.1cm} m O{} O{at start, left}}%

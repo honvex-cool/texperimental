@@ -82,36 +82,43 @@
 %    {\mathrel{\mathop{#4}\limits_{\vbox to #5\ex@{\kern-\tw@\ex@\hbox{$\scriptstyle\textcolor{#1}{\to #2}$}\vss}}}}%
 %    {\mathrel{\mathop{#4}\limits^{\vbox to -#5\ex@{\kern-\tw@\ex@\hbox{$\scriptstyle\textcolor{#1}{\to #2}$}\vss}}}}%
 %}
-\NewDocumentCommand{\converges}{O{Orange} m O{above} m}{%
-    \ifthenelse{\equal{#3}{below}}%
-    {{\underset{\textcolor{#1}{\to #2}}{#4}}}%
-    {{\overset{\textcolor{#1}{\to #2}}{#4}}}%
-}
+\NewDocumentCommand{\converges}{O{Orange} m}
+{%
+    \overset{\textcolor{#1}{\to #2}}{#4}%
+}%
+\NewDocumentCommand{\converges*}{O{Orange} m}%
+{%
+    \underset{\textcolor{#1}{\to #2}}{#4}%
+}%
 \let\conv\converges
 \DeclareMathOperator{\Fib}{Fib}
 
 % calculus
 \newcommand{\diff}{\constfont{d}}
-\NewDocumentCommand{\derivative}{O{1} m m}{%
+\NewDocumentCommand{\derivative}{O{1} m m}
+{%
     \ifthenelse{\equal{#1}{1}}%
     {\frac{\diff #2}{\diff #3}}%
     {\frac{\diff^{#1} #2}{\diff #3^{#1}}}%
-}
-\NewDocumentCommand{\partialderivative}{O{1} m m}{%
+}%
+\NewDocumentCommand{\partialderivative}{O{1} m m}
+{%
     \ifthenelse{\equal{#1}{1}}%
     {\frac{\partial #2}{\partial #3}}%
     {\frac{\partial^{#1} #2}{\partial #3^{#1}}}%
-}
-\NewDocumentCommand{\deriv}{O{1} m}{%
+}%
+\NewDocumentCommand{\deriv}{O{1} m}
+{%
     \ifthenelse{\equal{#1}{1}}%
     {\frac{\diff}{\diff #2}}%
     {\frac{\diff^{#1}}{\diff #2}}%
-}
-\NewDocumentCommand{\partialderiv}{O{1} m}{%
+%}
+\NewDocumentCommand{\partialderiv}{O{1} m}
+{%
     \ifthenelse{\equal{#1}{1}}%
     {\frac{\partial}{\partial #2}}%
     {\frac{\partial^{#1}}{\partial #2}}%
-}
+}%
 
 % linear algebra
 \renewcommand{\vec}{\overrightarrow}
