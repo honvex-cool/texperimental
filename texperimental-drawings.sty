@@ -9,7 +9,7 @@
 \RequirePackage{xfp}
 \RequirePackage{xparse}
 
-\usetikzlibrary{angles,quotes,babel,calc}
+\usetikzlibrary{angles,quotes,babel,calc,decorations.pathmorphing,patterns}
 
 \definecolor{lightgray}{gray}{0.75}
 
@@ -57,6 +57,11 @@
     \drawhmark{0, #4}[#5];%
     \fillpoint{0, 0};
     \node[below left] at (0, 0) {#6}%
+}%
+
+\NewDocumentCommand{\drawcoil}{O{black} O{aspect=0.3, segment length=2mm, amplitude=.4cm}}%
+{%
+    \draw[decorate, decoration={coil, #2}, #1]%
 }%
 
 \newenvironment{mathfigure}[1]%
