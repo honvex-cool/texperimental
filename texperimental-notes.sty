@@ -13,6 +13,9 @@
 \newenvironment{onelineenum}{\begin{enumerate*}[label=\alph*), itemjoin={\qquad}]}{\end{enumerate*}}
 \newcommand{\link}[2]{\href{#1}{\textcolor{blue}{#2}}}
 \let\ans\textbf
-\NewDocumentCommand{\choice}{m}{\textbf{#1}}
-\NewDocumentCommand{\choice*}{m m}{\textbf{#1~#2}}
-\let\highlight\textbf
+\NewDocumentCommand{\choice}{s m O{}}%
+{%
+    \ifbooleanTF#1%
+    {\textbf{#2~#3}}%
+    {\textbf{#2}}%
+}%

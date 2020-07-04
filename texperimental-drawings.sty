@@ -13,31 +13,25 @@
 
 \definecolor{lightgray}{gray}{0.75}
 
-\NewDocumentCommand{\fillpoint}{O{} m}%
+\NewDocumentCommand{\fillpoint}{s O{} m O{} O{above}}%
 {%
-    \filldraw[#1] (#2) circle (1pt)%
-}%
-\NewDocumentCommand{\fillpoint*}{O{} m m O{above}}%
-{%
-    \filldraw[#1] (#2) circle (1pt) node[#4]{#3}%
+    \ifbooleanTF#1%
+    {\filldraw[#2] (#3) circle (1pt) node[#5]{#4}}%
+    {\filldraw[#2] (#3) circle (1pt)}%
 }%
 
-\NewDocumentCommand{\drawpoint}{O{black} O{white} m}%
+\NewDocumentCommand{\drawpoint}{s O{black} O{white} m O{} O{above}}%
 {%
-    \filldraw[draw=#1, fill=#2] (#3) circle (1pt)%
-}%
-\NewDocumentCommand{\drawpoint*}{O{black} O{white} m m O{above}}%
-{%
-    \filldraw[draw=#1, fill=#2] (#3) circle (1pt) node[#5]{#4}%
+    \ifbooleanTF#1%
+    {\filldraw[draw=#2, fill=#3] (#4) circle (1pt) node[#6]{#5}}%
+    {\filldraw[draw=#2, fill=#3] (#4) circle (1pt)}%
 }%
 
-\NewDocumentCommand{\drawangle}%
+\NewDocumentCommand{\drawangle}{s O{} m O{}}%
 {%
-    \pic[draw, #1] {angle=#2}%
-}%
-\NewDocumentCommand{\drawangle*}{O{} m m}%
-{%
-    \pic[draw, "#3", #1] {angle=#2}%
+    \ifbooleanTF#1%
+    \pic[draw, "#4", #2] {angle=#3}%
+    \pic[draw, #2] {angle=#3}%
 }%
 
 \NewDocumentCommand{\drawhmark}{O{black} O{thick} O{0.1cm} m O{} O{at start, left}}%

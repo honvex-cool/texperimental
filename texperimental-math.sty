@@ -82,13 +82,11 @@
 %    {\mathrel{\mathop{#4}\limits_{\vbox to #5\ex@{\kern-\tw@\ex@\hbox{$\scriptstyle\textcolor{#1}{\to #2}$}\vss}}}}%
 %    {\mathrel{\mathop{#4}\limits^{\vbox to -#5\ex@{\kern-\tw@\ex@\hbox{$\scriptstyle\textcolor{#1}{\to #2}$}\vss}}}}%
 %}
-\NewDocumentCommand{\converges}{O{Orange} m}
+\NewDocumentCommand{\converges}{s O{Orange} m m}
 {%
-    \overset{\textcolor{#1}{\to #2}}{#4}%
-}%
-\NewDocumentCommand{\converges*}{O{Orange} m}%
-{%
-    \underset{\textcolor{#1}{\to #2}}{#4}%
+    \ifbooleanTF#1%
+    {\underset{\textcolor{#2}{\to #3}}{#4}}%
+    {\overset{\textcolor{#2}{\to #3}}{#4}}%
 }%
 \let\conv\converges
 \DeclareMathOperator{\Fib}{Fib}
@@ -112,7 +110,7 @@
     \ifthenelse{\equal{#1}{1}}%
     {\frac{\diff}{\diff #2}}%
     {\frac{\diff^{#1}}{\diff #2}}%
-%}
+}%
 \NewDocumentCommand{\partialderiv}{O{1} m}
 {%
     \ifthenelse{\equal{#1}{1}}%

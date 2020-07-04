@@ -1,11 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{texperimental-polish}
 
-\ProvideDocumentCommand{\answer}{\highlight{Odpowiedź:}}
-\ProvideDocumentCommand{\solution}{\highlight{Rozwiązanie:}}
-\ProvideDocumentCommand{\assumption}{\highlight{Założenie:}}
-\ProvideDocumentCommand{\conclusion}{\highlight{Teza:}}
-\ProvideDocumentCommand{\hypothesis}{\highlight{Hipoteza:}}
-\ProvideDocumentCommand{\theorem}{\highlight{Twierdzenie:}}
-\ProvideDocumentCommand{\theorem*}{m}{\highlight{Twierdzenie #1:}}
-\ProvideDocumentCommand{\trivial}{$\textrm{T}_{\!\!\textrm{\footnotesize R}}\!\!\textrm{Y}_{\!\!\textrm{\normalsize W}}\!\textrm{I}^{\!\textrm{A}}\!\textrm{L}_{\!\textrm{\normalsize N}}\!\textrm{E}$}
+\ProvideDocumentCommand{\answer}{}{\textbf{Odpowiedź:}}
+\ProvideDocumentCommand{\solution}{}{\textbf{Rozwiązanie:}}
+\ProvideDocumentCommand{\assumption}{}{\textbf{Założenie:}}
+\ProvideDocumentCommand{\conclusion}{}{\textbf{Teza:}}
+\ProvideDocumentCommand{\hypothesis}{}{\textbf{Hipoteza:}}
+\ProvideDocumentCommand{\trivial}{}{$\textrm{T}_{\!\!\textrm{\footnotesize R}}\!\!\textrm{Y}_{\!\!\textrm{\normalsize W}}\!\textrm{I}^{\!\textrm{A}}\!\textrm{L}_{\!\textrm{\normalsize N}}\!\textrm{E}$}
