@@ -15,7 +15,7 @@
 \let\ans\textbf
 \NewDocumentCommand{\choice}{s m O{}}%
 {%
-    \ifbooleanTF#1%
+    \IfBooleanTF#1%
     {\textbf{#2~#3}}%
     {\textbf{#2}}%
 }%

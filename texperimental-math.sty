@@ -84,7 +84,7 @@
 %}
 \NewDocumentCommand{\converges}{s O{Orange} m m}
 {%
-    \ifbooleanTF#1%
+    \IfBooleanTF#1%
     {\underset{\textcolor{#2}{\to #3}}{#4}}%
     {\overset{\textcolor{#2}{\to #3}}{#4}}%
 }%

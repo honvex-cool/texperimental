@@ -13,25 +13,27 @@
 
 \definecolor{lightgray}{gray}{0.75}
 
-\NewDocumentCommand{\fillpoint}{s O{} m O{} O{above}}%
+\NewDocumentCommand{\TikZ}{}{\textup{Ti\textit{k}Z}}
+
+\NewDocumentCommand{\drawpoint}{s O{black} m O{} O{above}}%
 {%
-    \ifbooleanTF#1%
-    {\filldraw[#2] (#3) circle (1pt) node[#5]{#4}}%
-    {\filldraw[#2] (#3) circle (1pt)}%
+    \IfBooleanTF#1%
+    {\draw[#2, fill=white] (#3) circle [radius=1pt] node[#5]{#4}}%
+    {\draw[#2, fill=white] (#3) circle [radius=1pt]}%
 }%
 
-\NewDocumentCommand{\drawpoint}{s O{black} O{white} m O{} O{above}}%
+\NewDocumentCommand{\fillpoint}{s O{black} O{black} m O{} O{above}}%
 {%
-    \ifbooleanTF#1%
-    {\filldraw[draw=#2, fill=#3] (#4) circle (1pt) node[#6]{#5}}%
-    {\filldraw[draw=#2, fill=#3] (#4) circle (1pt)}%
+    \IfBooleanTF#1%
+    {\draw[#2, fill=#3] (#4) circle [radius=1pt] node[#6]{#5}}%
+    {\draw[#2, fill=#3] (#4) circle [radius=1pt]}%
 }%
 
 \NewDocumentCommand{\drawangle}{s O{} m O{}}%
 {%
-    \ifbooleanTF#1%
-    \pic[draw, "#4", #2] {angle=#3}%
-    \pic[draw, #2] {angle=#3}%
+    \IfBooleanTF#1%
+    {\pic[draw, "#4", #2] {angle=#3}}%
+    {\pic[draw, #2] {angle=#3}}%
 }%
 
 \NewDocumentCommand{\drawhmark}{O{black} O{thick} O{0.1cm} m O{} O{at start, left}}%
@@ -62,6 +64,26 @@
 \NewDocumentCommand{\drawcoil}{O{black} O{aspect=0.3, segment length=2mm, amplitude=.4cm}}%
 {%
     \draw[decorate, decoration={coil, #2}, #1]%
+}%
+
+\NewDocumentCommand{\filldrawinfinitemass}{O{black} O{north east}}%
+{%
+    \filldraw[pattern=north east lines, pattern color=#1]%
+}%
+
+\NewDocumentCommand{\drawvec}{O{black}}%
+{%
+    \draw[->, very thick, -stealth, #1]%
+}%
+
+\NewDocumentCommand{\drawdist}{O{black}}%
+{%
+    \draw[<->, #1]%
+}%
+
+\NewDocumentCommand{\drawinfinitemass}{O{black} O{north east}}%
+{%
+    \fill[pattern=north east lines, pattern color=#1]%
 }%
 
 \newenvironment{mathfigure}[1]%
