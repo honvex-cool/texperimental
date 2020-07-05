@@ -44,13 +44,13 @@
 {%
     \draw[#1, #2] let \p1=(#4) in (\x1, \y1-#3) -- node[#6, inner sep=0, minimum size=0.3cm, fill=white, below=2pt]{#5} (\x1, \y1+#3)%
 }%
-\NewDocumentCommand{\drawaxes}{O{black} O{black} m m O{$x$} O{$y$}}%
+\NewDocumentCommand{\drawaxes}{O{black} O{black} m m O{\(x\)} O{\(y\)}}%
 {%
     \draw[->, -stealth, thick, #2] let \p1=(#3), \p2=(#4) in (0, \y1) -- node[above left, at end]{#6} (0, \y2);%
     \draw[->, -stealth, thick, #1] let \p1=(#3), \p2=(#4) in (\x1, 0) -- node[below right, at end]{#5} (\x2, 0)%
 }%
-\NewDocumentCommand{\drawcoordsystem}{O{black} O{lightgray, very thin} m O{1cm} O{1} O{0} m O{$x$} O{$y$}}%
-{%
+\NewDocumentCommand{\drawcoordsystem}{O{black} O{lightgray, very thin} m O{1cm} O{1} O{0} m O{\(x\)} O{\(y\)}}%
+{%s
     \coordinate (startcoordinatesystem) at (#3);
     \coordinate (endcoordinatesystem) at (#7);
     \draw[step=#4, #2] (startcoordinatesystem) grid (endcoordinatesystem);%
