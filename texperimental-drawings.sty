@@ -36,6 +36,11 @@
     {\pic[draw, #2] {angle=#3}}%
 }%
 
+\NewDocumentCommand{\drawrightangle}{O{} m}%
+{%
+    \drawangle*[#1]{#2}[\(\scriptstyle\bullet\)]%
+}%
+
 \NewDocumentCommand{\drawhmark}{O{black} O{thick} O{0.1cm} m O{} O{at start, left}}%
 {%
     \draw[#1, #2] let \p1=(#4) in (\x1-#3, \y1) -- node[#6, inner sep=0, minimum height=0.3cm, fill=white, left=2pt]{#5} (\x1+#3, \y1)%
@@ -104,6 +109,28 @@
     \begin{figure}[H]%
         \centering%
         \begin{tikzpicture}%
+}%
+{%
+        \end{tikzpicture}%
+    \end{figure}%
+}%
+
+\newenvironment{mathfig}[1]%
+{%
+    \def\figurecaption{#1}%
+    \begin{figure}[H]%
+        \begin{tikzpicture}%
+}%
+{%
+    \end{tikzpicture}%
+    \caption{\figurecaption}%
+    \end{figure}%
+}%
+
+\newenvironment{mathfig*}%
+{%
+    \begin{figure}[H]%
+        \begin{tikzpicture}
 }%
 {%
         \end{tikzpicture}%

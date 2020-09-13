@@ -88,7 +88,6 @@
     {\underset{\textcolor{#2}{\to #3}}{#4}}%
     {\overset{\textcolor{#2}{\to #3}}{#4}}%
 }%
-\let\conv\converges
 \DeclareMathOperator{\Fib}{Fib}
 
 % calculus
@@ -123,11 +122,13 @@
 \newcommand{\ihat}{\hat{\imath}}
 \newcommand{\jhat}{\hat{\jmath}}
 \DeclareMathOperator{\ccw}{ccw}
+\let\cross\times
 
 % geometry
 \let\len\abs
 \newcommand{\mangle}[1]{\len{\angle #1}}
 \let\arc\widehat
+\DeclareMathOperator{\conv}{conv}
 
 % symbols
 \let\Rho\varrho
