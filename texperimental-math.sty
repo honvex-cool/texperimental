@@ -77,9 +77,14 @@
 % sequences
 \let\sequence\parentheses
 \renewcommand{\binom}{\dbinom}
+\let\oldlor\lor
+\renewcommand{\lor}{\quad\oldlor\quad}
+\let\oldland\land
+\renewcommand{\land}{\quad\oldland\quad}
 \NewDocumentCommand{\limit}{O{n} O{+\infty}}{\lim\limits_{{#1}\to{#2}}}
 \NewDocumentCommand{\summation}{O{n = 1} O{+\infty}}{\sum_{#1}^{#2}}
 \NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod_{#1}^{#2}}
+\let\series\summation
 % Maybe sometimes better than the second \converges command, but generally not
 %\NewDocumentCommand{\converges}{O{Orange} m O{above} m O{0.5}}{%
 %    \ifthenelse{\equal{#3}{below}}%
