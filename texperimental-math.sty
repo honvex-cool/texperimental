@@ -43,6 +43,9 @@
 \DeclarePairedDelimiter{\absdelimiter}{|}{|}
 \def\abs{\absdelimiter*}
 
+% logic
+\newcommand{\verticaliff}{\Big\Updownarrow}
+
 % symbols for sets
 \let\naturalmusic\natural
 \newcommand{\real}{\mathbb{R}}
@@ -69,6 +72,7 @@
 \newcommand{\leftclosed}[2]{\left[\intervalbounds{#1}{#2}\right)}
 \newcommand{\rightclosed}[2]{\left(\intervalbounds{#1}{#2}\right]}
 \newcommand{\open}[2]{\left(\intervalbounds{#1}{#2}\right)}
+\DeclareMathOperator{\sgn}{sgn}
 
 % sequences
 \let\sequence\parentheses
@@ -128,6 +132,7 @@
 \let\len\abs
 \newcommand{\mangle}[1]{\len{\angle #1}}
 \let\arc\widehat
+\let\segment\overline
 \DeclareMathOperator{\conv}{conv}
 
 % symbols
