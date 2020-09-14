@@ -77,7 +77,7 @@
 % sequences
 \let\sequence\parentheses
 \renewcommand{\binom}{\dbinom}
-\NewDocumentCommand{\limit}{O{n} O{+\infty}}{\lim_{{#1}\to{#2}}}
+\NewDocumentCommand{\limit}{O{n} O{+\infty}}{\lim\limits_{{#1}\to{#2}}}
 \NewDocumentCommand{\summation}{O{n = 1} O{+\infty}}{\sum_{#1}^{#2}}
 \NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod_{#1}^{#2}}
 % Maybe sometimes better than the second \converges command, but generally not
