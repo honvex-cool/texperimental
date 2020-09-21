@@ -43,11 +43,11 @@
 
 \NewDocumentCommand{\drawhmark}{O{black} O{thick} O{0.1cm} m O{} O{at start, left}}%
 {%
-    \draw[#1, #2] let \p1=(#4) in (\x1-#3, \y1) -- node[#6, inner sep=0, minimum height=0.3cm, fill=white, left=2pt]{#5} (\x1+#3, \y1)%
+    \draw[#1, #2] let \p1=(#4) in (\x1-#3, \y1) -- node[#6, inner sep=0, minimum height=0.3cm, left=2pt]{#5} (\x1+#3, \y1)%
 }%
 \NewDocumentCommand{\drawvmark}{O{black} O{thick} O{0.1cm} m O{} O{at start, below}}%
 {%
-    \draw[#1, #2] let \p1=(#4) in (\x1, \y1-#3) -- node[#6, inner sep=0, minimum size=0.3cm, fill=white, below=2pt]{#5} (\x1, \y1+#3)%
+    \draw[#1, #2] let \p1=(#4) in (\x1, \y1-#3) -- node[#6, inner sep=0, minimum size=0.3cm, below=2pt]{#5} (\x1, \y1+#3)%
 }%
 \NewDocumentCommand{\drawaxes}{O{black} O{black} m m O{\(x\)} O{\(y\)}}%
 {%

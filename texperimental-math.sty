@@ -42,6 +42,10 @@
 \def\braces{\bracesdelimiter*}
 \DeclarePairedDelimiter{\absdelimiter}{|}{|}
 \def\abs{\absdelimiter*}
+\DeclarePairedDelimiter{\floordelimiter}{\lfloor}{\rfloor}
+\def\floor{\floordelimiter*}
+\DeclarePairedDelimiter{\ceildelimiter}{\lceil}{\rceil}
+\def\ceil{\ceildelimiter*}
 
 % logic
 \newcommand{\verticaliff}{\Big\Updownarrow}
@@ -81,7 +85,7 @@
 \renewcommand{\lor}{\quad\oldlor\quad}
 \let\oldland\land
 \renewcommand{\land}{\quad\oldland\quad}
-\NewDocumentCommand{\limit}{O{n} O{+\infty}}{\lim\limits_{{#1}\to{#2}}}
+\NewDocumentCommand{\limit}{O{n \to +\infty}}{\lim\limits_{#1}}
 \NewDocumentCommand{\summation}{O{n = 1} O{+\infty}}{\sum_{#1}^{#2}}
 \NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod_{#1}^{#2}}
 \let\series\summation
@@ -153,6 +157,7 @@
 
 % physics and measurements
 \let\unit\brackets
+\let\p\textrm
 
 \newcommand{\yocto}{\constfont{y}}
 \newcommand{\zepto}{\constfont{z}}

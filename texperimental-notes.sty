@@ -6,8 +6,12 @@
 \RequirePackage{xparse}
 \RequirePackage{ifthen}
 \RequirePackage{fancyhdr}
+\RequirePackage{tcolorbox}
 
 \RequirePackage{amsmath}
+
+\newtcolorbox{statementbox}{colback=white, colframe=black}
+\newenvironment{statement}{\begin{statementbox}}{\end{statementbox}\noindent}
 
 % classic note-taking setup
 \newenvironment{onelineitem}{\begin{itemize*}[label={}, itemjoin={,\quad}]}{\end{itemize*}}
