@@ -88,6 +88,7 @@
 \NewDocumentCommand{\limit}{O{n \to +\infty}}{\lim\limits_{#1}}
 \NewDocumentCommand{\summation}{O{n = 1} O{+\infty}}{\sum_{#1}^{#2}}
 \NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod_{#1}^{#2}}
+\let\indeterminate\brackets
 \let\series\summation
 % Maybe sometimes better than the second \converges command, but generally not
 %\NewDocumentCommand{\converges}{O{Orange} m O{above} m O{0.5}}{%
@@ -100,6 +101,12 @@
     \IfBooleanTF#1%
     {\underset{\textcolor{#2}{\to #3}}{#4}}%
     {\overset{\textcolor{#2}{\to #3}}{#4}}%
+}%
+\NewDocumentCommand{\bconverges}{s O{Orange} m m}
+{%
+    \IfBooleanTF#1%
+    {\underbrace{#4}_{\textcolor{#2}{\to #3}}}%
+    {\overbrace{#4}^{\textcolor{#2}{\to #3}}}%
 }%
 \DeclareMathOperator{\Fib}{Fib}
 
