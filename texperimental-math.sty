@@ -90,12 +90,7 @@
 \NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod_{#1}^{#2}}
 \let\indeterminate\brackets
 \let\series\summation
-% Maybe sometimes better than the second \converges command, but generally not
-%\NewDocumentCommand{\converges}{O{Orange} m O{above} m O{0.5}}{%
-%    \ifthenelse{\equal{#3}{below}}%
-%    {\mathrel{\mathop{#4}\limits_{\vbox to #5\ex@{\kern-\tw@\ex@\hbox{$\scriptstyle\textcolor{#1}{\to #2}$}\vss}}}}%
-%    {\mathrel{\mathop{#4}\limits^{\vbox to -#5\ex@{\kern-\tw@\ex@\hbox{$\scriptstyle\textcolor{#1}{\to #2}$}\vss}}}}%
-%}
+
 \NewDocumentCommand{\converges}{s O{Orange} m m}
 {%
     \IfBooleanTF#1%
