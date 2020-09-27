@@ -19,6 +19,7 @@
 \newcommand{\link}[2]{\href{#1}{\textcolor{blue}{#2}}}
 \let\ans\textbf
 \let\highlight\textbf
+\NewDocumentCommand{\refer}{s m}{(\IfBooleanTF#1{\ref*{#2}}{\ref{#2}})}%
 \NewDocumentCommand{\choice}{s m O{}}%
 {%
     \IfBooleanTF#1%
