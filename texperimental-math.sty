@@ -19,8 +19,6 @@
 
 \RequirePackage{xparse}
 
-\RequirePackage{xcolor}
-
 \RequirePackage{ifthen}
 
 
@@ -81,23 +79,25 @@
 % sequences
 \let\sequence\parentheses
 \renewcommand{\binom}{\dbinom}
-\let\oldlor\lor
-\renewcommand{\lor}{\quad\oldlor\quad}
-\let\oldland\land
-\renewcommand{\land}{\quad\oldland\quad}
+\let\nlor\lor
+\renewcommand{\lor}{\quad\nlor\quad}
+\newcommand{\wlor}{\qquad\nlor\qquad}
+\let\nland\land
+\renewcommand{\land}{\quad\nland\quad}
+\newcommand{\wland}{\qquad\nland\qquad}
 \NewDocumentCommand{\limit}{O{n \to +\infty}}{\lim\limits_{#1}}
 \NewDocumentCommand{\summation}{O{n = 1} O{+\infty}}{\sum_{#1}^{#2}}
 \NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod_{#1}^{#2}}
 \let\indeterminate\brackets
 \let\series\summation
 
-\NewDocumentCommand{\converges}{s O{Orange} m m}
+\NewDocumentCommand{\converges}{s O{orange} m m}
 {%
     \IfBooleanTF#1%
     {\underset{\textcolor{#2}{\to #3}}{#4}}%
     {\overset{\textcolor{#2}{\to #3}}{#4}}%
 }%
-\NewDocumentCommand{\bconverges}{s O{Orange} m m}
+\NewDocumentCommand{\bconverges}{s O{orange} m m}
 {%
     \IfBooleanTF#1%
     {\underbrace{#4}_{\textcolor{#2}{\to #3}}}%

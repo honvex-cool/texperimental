@@ -1,12 +1,14 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{texperimental-german}
 
+\RequirePackage{xcolor}
+
 \providecommand{\answer}{\textbf{Antwort:}}
 \providecommand{\solution}{\textbf{Lösung:}}
 \providecommand{\der}{\textcolor{red}{der}\ }
-\providecommand{\die}{\textcolor{ForestGreen}{die}\ }
+\providecommand{\die}{\textcolor{teal}{die}\ }
 \providecommand{\das}{\textcolor{blue}{das}\ }
-\providecommand{\diepl}{\textcolor{Orange}{die}\ }
+\providecommand{\diepl}{\textcolor{orange}{die}\ }
 
 \newenvironment{words}{\textit{Wortschatz:}\begin{description}}{\end{description}}
 \newenvironment{schoolwork}{\textit{Schulaufgaben:}\begin{itemize}}{\end{itemize}}
