@@ -8,6 +8,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
+\RequirePackage{centernot}
 \RequirePackage{mathtools}
 \RequirePackage{siunitx}
 
@@ -62,6 +63,9 @@
 \let\set\braces
 \let\card\abs
 \let\cardinality\abs
+\let\divides\mid
+\newcommand{\ndivides}{\centernot\mid}
+\renewcommand{\emptyset}{{\centernot\ocircle}}
 
 % complex numbers
 \let\Re\relax
