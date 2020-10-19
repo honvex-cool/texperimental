@@ -55,13 +55,35 @@
     \draw[->, -stealth, thick, #1] let \p1=(#3), \p2=(#4) in (\x1, 0) -- node[below right, at end]{#5} (\x2, 0)%
 }%
 \NewDocumentCommand{\drawcoordsystem}{O{1} O{black} O{lightgray, very thin} m O{1} O{0} m O{\(x\)} O{\(y\)}}%
-{%s
+{%
     \draw[step=1cm, #3, scale=#1] (#4) grid (#7);%
     \drawaxes[#2, scale=#1][#2, scale=#1]{#4}{#7}[#8][#9];%
     \drawvmark{1cm * #1, 0}[#5];%
     \drawhmark{0, 1cm * #1}[#5];%
     \fillpoint{0, 0};
     \node[below left] at (0, 0) {#6}%
+}%
+\NewDocumentCommand{\drawupparabola}{O{black} m m O{\(x\)} O{1}}%
+{%
+    \drawvec[scale=#5] (-2.5, 0) -- (2.5, 0) node[below]{#4};
+    \draw[scale=#5, domain=-1.6:1.6, #1, thick, samples=40] plot (\x, {(\x + 1)*(\x - 1)});
+    \fillpoint*{-1*#5, 0}[#2][below left];
+    \fillpoint*{1*#5, 0}[#3][below right]
+}%
+\NewDocumentCommand{\drawdownparabola}{O{black} m m O{\(x\)} O{1}}%
+{%
+    \drawvec[scale=#5] (-2.5, 0) -- (2.5, 0) node[below]{#4};
+    \draw[scale=#5, domain=-1.6:1.6, #1, thick, samples=40] plot (\x, {-(\x + 1)*(\x - 1)});
+    \fillpoint*{-1*#5, 0}[#2][above left];
+    \fillpoint*{1*#5, 0}[#3][above right]
+}%
+\NewDocumentCommand{\downparabola}{O{black} m m O{\(x\)} O{1}}%
+{%
+    \begin{tikzpicture}\drawdownparabola[#1]{#2}{#3}[#4][#5];\end{tikzpicture}
+}%
+\NewDocumentCommand{\upparabola}{O{black} m m O{\(x\)} O{1}}%
+{%
+    \begin{tikzpicture}\drawupparabola[#1]{#2}{#3}[#4][#5];\end{tikzpicture}
 }%
 
 \NewDocumentCommand{\drawcoil}{O{black} O{aspect=0.3, segment length=2mm, amplitude=.4cm}}%
