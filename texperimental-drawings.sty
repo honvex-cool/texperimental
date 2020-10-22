@@ -67,15 +67,15 @@
 {%
     \drawvec[scale=#5] (-2.5, 0) -- (2.5, 0) node[below]{#4};
     \draw[scale=#5, domain=-1.6:1.6, #1, thick, samples=40] plot (\x, {(\x + 1)*(\x - 1)});
-    \fillpoint*{-1*#5, 0}[#2][below left];
-    \fillpoint*{1*#5, 0}[#3][below right]
+    \fillpoint*{-1*#5, 0}[\(#2\)][below left];
+    \fillpoint*{1*#5, 0}[\(#3\)][below right]
 }%
 \NewDocumentCommand{\drawdownparabola}{O{black} m m O{\(x\)} O{1}}%
 {%
     \drawvec[scale=#5] (-2.5, 0) -- (2.5, 0) node[below]{#4};
     \draw[scale=#5, domain=-1.6:1.6, #1, thick, samples=40] plot (\x, {-(\x + 1)*(\x - 1)});
-    \fillpoint*{-1*#5, 0}[#2][above left];
-    \fillpoint*{1*#5, 0}[#3][above right]
+    \fillpoint*{-1*#5, 0}[\(#2\)][above left];
+    \fillpoint*{1*#5, 0}[\(#3\)][above right]
 }%
 \NewDocumentCommand{\downparabola}{O{black} m m O{\(x\)} O{1}}%
 {%
