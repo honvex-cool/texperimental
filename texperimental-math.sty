@@ -4,6 +4,7 @@
 \RequirePackage[inline]{enumitem}
 \RequirePackage{hyperref}
 \RequirePackage{xcolor}
+\RequirePackage{tikz}
 
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
@@ -138,6 +139,7 @@
     {\frac{\partial}{\partial #2}}%
     {\frac{\partial^{#1}}{\partial #2}}%
 }%
+\newcommand{\lhospitaleq}{\stackrel{\mathclap{\begin{tikzpicture}\node[draw, circle, inner sep=0.5pt]{\scriptsize H};\end{tikzpicture}}}{=}}
 
 % linear algebra
 \renewcommand{\vec}{\overrightarrow}
