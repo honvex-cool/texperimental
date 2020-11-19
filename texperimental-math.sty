@@ -18,6 +18,7 @@
 \RequirePackage{gensymb}
 \RequirePackage{marvosym}
 \RequirePackage{wasysym}
+\RequirePackage{pifont}
 
 \RequirePackage{xparse}
 
@@ -165,6 +166,8 @@
 \providecommand{\QEDsymbol}{\rule{1.566ex}{1.566ex}}
 \providecommand{\QED}{\hfill\QEDsymbol}
 \NewDocumentCommand{\canc}{O{black} m}{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+\newcommand{\contradiction}{\quad\mbox{\Lightning}}
+\newcommand{\ok}{\quad\mbox{\ding{51}}}
 
 
 % physics and measurements
@@ -194,6 +197,7 @@
 
 \newcommand{\rad}{\constfont{rad}}
 \newcommand{\mol}{\constfont{mol}}
+\newcommand{\C}{\constfont{C}}
 
 \let\liter\ell
 \newcommand{\m}{\constfont{m}}
