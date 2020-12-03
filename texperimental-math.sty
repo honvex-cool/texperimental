@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{texperimental-math}
 
+\let\lll\relax
 \RequirePackage[inline]{enumitem}
 \RequirePackage{hyperref}
 \RequirePackage{xcolor}
@@ -16,15 +17,13 @@
 \RequirePackage[makeroom]{cancel}
 \RequirePackage{textcomp}
 \RequirePackage{gensymb}
+\RequirePackage{amssymb}
 \RequirePackage{marvosym}
 \RequirePackage{wasysym}
-\RequirePackage{pifont}
 
 \RequirePackage{xparse}
 
 \RequirePackage{ifthen}
-
-
 
 % math
 \let\constfont\mathrm
@@ -62,12 +61,14 @@
 \newcommand{\complex}{\mathbb{C}}
 \newcommand{\quaternions}{\mathbb{H}}
 \newcommand{\primes}{\mathbb{P}}
+\newcommand{\powerset}{\mathcal{P}}
 \let\set\braces
-\let\card\abs
+\let\card\#
 \let\cardinality\abs
 \let\divides\mid
+\newcommand{\symmetricgroup}{\mathfrak{S}}
 \newcommand{\ndivides}{\centernot\mid}
-\renewcommand{\emptyset}{{\centernot\ocircle}}
+\renewcommand{\emptyset}{\varnothing}
 
 % complex numbers
 \let\Re\relax
@@ -87,6 +88,8 @@
 
 % sequences
 \let\sequence\parentheses
+\let\seq\parentheses
+\let\ibinom\binom
 \renewcommand{\binom}{\dbinom}
 \let\nlor\lor
 \renewcommand{\lor}{\quad\nlor\quad}
@@ -94,6 +97,9 @@
 \let\nland\land
 \renewcommand{\land}{\quad\nland\quad}
 \newcommand{\wland}{\qquad\nland\qquad}
+\newcommand{\nlxor}{\veebar}
+\newcommand{\lxor}{\quad\nlxor\quad}
+\newcommand{\wlxor}{\qquad\nlxor\qquad}
 \NewDocumentCommand{\limit}{O{n \to +\infty}}{\lim\limits_{#1}}
 \NewDocumentCommand{\summation}{O{n = 1} O{+\infty}}{\sum_{#1}^{#2}}
 \NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod_{#1}^{#2}}
@@ -166,9 +172,6 @@
 \providecommand{\QEDsymbol}{\rule{1.566ex}{1.566ex}}
 \providecommand{\QED}{\hfill\QEDsymbol}
 \NewDocumentCommand{\canc}{O{black} m}{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
-\newcommand{\contradiction}{\quad\mbox{\Lightning}}
-\newcommand{\ok}{\quad\mbox{\ding{51}}}
-
 
 % physics and measurements
 \let\unit\brackets
@@ -197,7 +200,6 @@
 
 \newcommand{\rad}{\constfont{rad}}
 \newcommand{\mol}{\constfont{mol}}
-\newcommand{\C}{\constfont{C}}
 
 \let\liter\ell
 \newcommand{\m}{\constfont{m}}
@@ -223,6 +225,10 @@
 \newcommand{\at}{\constfont{at}}
 \newcommand{\mmHg}{\constfont{mmHg}}
 \newcommand{\Tr}{\constfont{Tr}}
+
+\newcommand{\Farad}{\constfont{F}}
+\newcommand{\V}{\constfont{V}}
+\newcommand{\C}{\constfont{C}}
 
 \newcommand{\N}{\constfont{N}}
 \newcommand{\Hz}{\constfont{Hz}}

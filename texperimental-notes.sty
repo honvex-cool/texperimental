@@ -10,8 +10,14 @@
 
 \RequirePackage{amsmath}
 
+\RequirePackage{pifont}
+
 \newtcolorbox{statementbox}{colback=white, colframe=black}
 \newenvironment{statement}{\begin{statementbox}}{\end{statementbox}\noindent}
+
+\newcommand{\contradiction}{\quad\mbox{\Lightning}}
+\newcommand{\ok}{\quad\mbox{\ding{51}}}
+\newcommand{\wrong}{\quad\mbox{\ding{55}}}
 
 % classic note-taking setup
 \newenvironment{onelineitem}{\begin{itemize*}[label={}, itemjoin={,\quad}]}{\end{itemize*}}
