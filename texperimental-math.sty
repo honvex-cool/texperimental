@@ -92,14 +92,15 @@
 \let\ibinom\binom
 \renewcommand{\binom}{\dbinom}
 \let\nlor\lor
-\renewcommand{\lor}{\quad\nlor\quad}
-\newcommand{\wlor}{\qquad\nlor\qquad}
+\newcommand{\wlor}{\quad\lor\quad}
+\newcommand{\wwlor}{\qquad\lor\qquad}
 \let\nland\land
-\renewcommand{\land}{\quad\nland\quad}
-\newcommand{\wland}{\qquad\nland\qquad}
-\newcommand{\nlxor}{\veebar}
-\newcommand{\lxor}{\quad\nlxor\quad}
-\newcommand{\wlxor}{\qquad\nlxor\qquad}
+\newcommand{\wland}{\quad\land\quad}
+\newcommand{\wwland}{\qquad\land\qquad}
+\newcommand{\lxor}{\veebar}
+\let\nlxor\lxor
+\newcommand{\wlxor}{\quad\lxor\quad}
+\newcommand{\wwlxor}{\qquad\lxor\qquad}
 \NewDocumentCommand{\limit}{O{n \to +\infty}}{\lim\limits_{#1}}
 \NewDocumentCommand{\summation}{O{n = 1} O{+\infty}}{\sum_{#1}^{#2}}
 \NewDocumentCommand{\product}{O{k = 1} O{n}}{\prod_{#1}^{#2}}

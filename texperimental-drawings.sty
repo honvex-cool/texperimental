@@ -54,14 +54,14 @@
     \draw[->, -stealth, thick, #2] let \p1=(#3), \p2=(#4) in (0, \y1) -- node[above left, at end]{#6} (0, \y2);%
     \draw[->, -stealth, thick, #1] let \p1=(#3), \p2=(#4) in (\x1, 0) -- node[below right, at end]{#5} (\x2, 0)%
 }%
-\NewDocumentCommand{\drawcoordsystem}{O{1} O{black} O{lightgray, very thin} m O{1} O{0} m O{\(x\)} O{\(y\)}}%
+\NewDocumentCommand{\drawcoordsystem}{O{1} O{black} O{lightgray, very thin} m O{\(x\)} O{\(1\)} m  O{\(y\)} O{\(1\)}}%
 {%
     \draw[step=1cm, #3, scale=#1] (#4) grid (#7);%
-    \drawaxes[#2, scale=#1][#2, scale=#1]{#4}{#7}[#8][#9];%
-    \drawvmark{1cm * #1, 0}[#5];%
-    \drawhmark{0, 1cm * #1}[#5];%
+    \drawaxes[#2, scale=#1][#2, scale=#1]{#4}{#7}[#5][#8];%
+    \drawvmark{1cm * #1, 0}[#6];%
+    \drawhmark{0, 1cm * #1}[#9];%
     \fillpoint{0, 0};
-    \node[below left] at (0, 0) {#6}%
+    \node[below left] at (0, 0) {\(0\)}%
 }%
 \NewDocumentCommand{\drawupparabola}{O{black} m m O{\(x\)} O{1}}%
 {%
