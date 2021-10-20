@@ -71,9 +71,10 @@
 \newcommand{\ndivides}{\centernot\mid}
 \renewcommand{\emptyset}{\varnothing}
 \newcommand{\id}{\constfont{id}}
-\DeclarePairedDelimiter{\permutationdelimiter}{<}{>}
-\def\permutation{\permutationdelimiter*}
-\let\perm\permutation
+\DeclarePairedDelimiter{\anglebracketsdelimiter}{<}{>}
+\def\anglebrackets{\anglebracketsdelimiter*}
+\let\angs\anglebrackets
+\DeclareMathOperator{\ord}{ord}
 
 % complex numbers
 \let\Re\relax
