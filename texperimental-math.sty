@@ -77,6 +77,11 @@
 \let\angs\anglebrackets
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\characteristic}{char}
+\newcommand{\eqnum}{\mathbin{\sim_{\text{\tiny{\(m\)}}}}}
+\newcommand{\leqnum}{\mathbin{\leq_{\text{\tiny{\(m\)}}}}}
+\newcommand{\geqnum}{\mathbin{\geq_{\text{\tiny{\(m\)}}}}}
+\newcommand{\ltnum}{\mathbin{<_{\text{\tiny{\(m\)}}}}}
+\newcommand{\gtnum}{\mathbin{>_{\text{\tiny{\(m\)}}}}}
 
 % complex numbers
 \let\Re\relax
@@ -171,6 +176,11 @@
 \let\segment\overline
 \DeclareMathOperator{\conv}{conv}
 \let\area\brackets
+
+% functions
+\let\injective\hookrightarrow
+\let\surjective\twoheadrightarrow
+\newcommand{\bijective}{\hookrightarrow\mathrel{\mspace{-15mu}}\rightarrow}
 
 % symbols
 \let\Rho\varrho
