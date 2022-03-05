@@ -7,6 +7,7 @@
 \RequirePackage{ifthen}
 \RequirePackage{fancyhdr}
 \RequirePackage{tcolorbox}
+\RequirePackage{etoolbox}
 
 \RequirePackage{amsmath}
 
@@ -32,3 +33,15 @@
     {\textbf{#2~#3}}%
     {\textbf{#2}}%
 }%
+
+\newenvironment{codelike}%
+{%
+    \ttfamily
+    \begin{displaymath}%
+        \begin{tabular}{@{}l@{}}%
+}%
+{%
+        \end{tabular}%
+    \end{displaymath}%
+}%
+\AfterEndEnvironment{codelike}{\noindent\ignorespaces}
